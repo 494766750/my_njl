@@ -1,8 +1,11 @@
 package com.my.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +13,8 @@ import java.util.Date;
  * @author njl
  */
 @Data
-public class SysUser extends BaseEntity
+@TableName("sys_user")
+public class SysUser extends BaseEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -20,6 +24,7 @@ public class SysUser extends BaseEntity
     /** 部门ID */
     private Long deptId;
 
+    @TableField(exist = false)
     private Long[] deptIds;
 
     /** 用户账号 */
@@ -47,6 +52,7 @@ public class SysUser extends BaseEntity
     private String password;
 
     /** 盐加密 */
+    @TableField(exist = false)
     private String salt;
 
     /** 帐号状态（0正常 1停用） */
@@ -68,9 +74,11 @@ public class SysUser extends BaseEntity
 //    private List<SysRole> roles;
 
     /** 角色组 */
+    @TableField(exist = false)
     private Long[] roleIds;
 
     /** 岗位组 */
+    @TableField(exist = false)
     private Long[] postIds;
 
     private String ncId;
@@ -83,6 +91,7 @@ public class SysUser extends BaseEntity
 
     private String ncDeptname;
 
+    @TableField(exist = false)
     private String[] largeScreenOptions;
 
 }

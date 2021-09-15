@@ -36,12 +36,6 @@
             <version>1.18.12</version>
             <scope>compile</scope>
         </dependency>
-        <!--    mysql    -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
         <dependency>
@@ -64,9 +58,6 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/resources/lib/jacob.jar</systemPath>
         </dependency>
-
-
-
     </dependencies>
 
 </project>
