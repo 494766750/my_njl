@@ -13,6 +13,8 @@
         <module>common</module>
         <module>system</module>
         <module>admin</module>
+        <module>quartz</module>
+        <module>test</module>
     </modules>
 
 
