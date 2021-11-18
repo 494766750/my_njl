@@ -9,6 +9,9 @@ import java.util.Queue;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 优先级队列
+ */
 public class QueueTest {
     public static void main(String[] args) {
 //        SerialModel model1 = new SerialModel(1);
