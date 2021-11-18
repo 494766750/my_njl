@@ -1,4 +1,4 @@
-package com.my.entity;
+package my.entity;
 
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;

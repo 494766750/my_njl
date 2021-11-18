@@ -1,6 +1,8 @@
-package com.my.test;
+package my.test;
 
-import com.my.entity.LineUpEntity;
+
+
+import my.entity.LineUpEntity;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
