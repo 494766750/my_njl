@@ -1,4 +1,4 @@
-package my;
+package my.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.my.utils.StringUtils;
