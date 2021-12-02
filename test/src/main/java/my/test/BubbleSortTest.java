@@ -149,7 +149,7 @@ public class BubbleSortTest {
     }
 
     /**
-     * 归并排序
+     * 归并排序  分治法
      *
      * @param intArr
      * @return
@@ -160,6 +160,13 @@ public class BubbleSortTest {
         return intArr;
     }
 
+    /** 分-递归拆分数组
+     *
+     * @param intArr 排序数组
+     * @param left 排序区间左节点（起点）
+     * @param right 排序区间右节点（终点）
+     * @param tmp 排序扩展空间，和原数组等长
+     */
     public void sort(Integer[] intArr, int left, int right, Integer[] tmp) {
         //满足数组长度至少大于1，有排序意义
         if (left < right) {
@@ -170,6 +177,14 @@ public class BubbleSortTest {
         }
     }
 
+    /** 治-数组递归拆分完毕开始从底层排序
+     *
+     * @param intArr 排序数组
+     * @param left 排序数组起点
+     * @param mid 排序数组分组节点（左终点，mid+1为右起点）
+     * @param right 排序数组终点
+     * @param tmp 排序所需空间，和 intArr 等长
+     */
     public void margeSort(Integer[] intArr, int left, int mid, int right, Integer[] tmp) {
         int i = left;//左数组指针
         int j = mid + 1; //右数组指针
