@@ -1,7 +1,7 @@
 package com.my.web.controller;
 
 import com.my.service.SysUserService;
-import my.upload.client.UploadClient;
+//import my.upload.client.UploadClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

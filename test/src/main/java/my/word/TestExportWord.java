@@ -20,34 +20,34 @@ public class TestExportWord {
         List<List<Object>> list = new ArrayList<List<Object>>();
         
 //        List<Object> tempList = new ArrayList<Object>();
-//        tempList.add("ĞÕÃû");
-//        tempList.add("»Æxx");
-//        tempList.add("ĞÔ±ğ");
-//        tempList.add("ÄĞ");
-//        tempList.add("³öÉúÈÕÆÚ");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½xx");
+//        tempList.add("ï¿½Ô±ï¿½");
+//        tempList.add("ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 //        tempList.add("2018-10-10");
 //        list.add(tempList);
 //        tempList = new ArrayList<Object>();
-//        tempList.add("Éí·İÖ¤ºÅ");
+//        tempList.add("ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½");
 //        tempList.add("36073xxxxxxxxxxx");
 //        list.add(tempList);
 //        tempList = new ArrayList<Object>();
-//        tempList.add("³öÉúµØ");
-//        tempList.add("½­Î÷");
-//        tempList.add("Ãû×å");
-//        tempList.add("ºº");
-//        tempList.add("»é·ñ");
-//        tempList.add("·ñ");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½ï¿½");
+//        tempList.add("ï¿½ï¿½");
 //        list.add(tempList);
 //        tempList = new ArrayList<Object>();
-//        tempList.add("¼ÈÍù²¡Ê·");
-//        tempList.add("ÎŞ");
+//        tempList.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê·");
+//        tempList.add("ï¿½ï¿½");
 //        list.add(tempList);
         
         Map<String, Object> dataList = new HashMap<String, Object>();
-        dataList.put("TITLE", "ÎÒÊÇ±êÌâ---------------------");
+        dataList.put("TITLE", "æˆ‘æ˜¯æ ‡é¢˜---------------------");
         dataList.put("TABLEDATA", list);
         ew.exportCheckWord2(dataList, document, "E:/expWordTest.docx");
-        System.out.println("ÎÄµµÉú³É³É¹¦");
+        System.out.println("æ–‡æ¡£ç”ŸæˆæˆåŠŸ");
     }
 }
