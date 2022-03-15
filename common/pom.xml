@@ -90,20 +90,33 @@
             <artifactId>guava</artifactId>
             <version>23.0</version>
         </dependency>
-
+        <!--    视频处理相关    -->
         <dependency>
             <groupId>com.googlecode.mp4parser</groupId>
             <artifactId>isoparser</artifactId>
             <version>1.1.22</version>
         </dependency>
-
         <dependency>
             <groupId>org</groupId>
             <artifactId>jaudiotagger</artifactId>
             <version>2.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco.javacpp-presets</groupId>
+            <artifactId>ffmpeg-platform</artifactId>
+            <version>4.0.2-1.4.3</version>
+        </dependency>
 
-        <!-- excel end -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
     </dependencies>
 
 </project>
