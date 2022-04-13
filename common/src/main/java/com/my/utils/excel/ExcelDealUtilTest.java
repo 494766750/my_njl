@@ -1,17 +1,10 @@
-package my.utils;
+package com.my.utils.excel;
 
-import my.utils.ExcelDealUtil;
-import my.utils.Person;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**

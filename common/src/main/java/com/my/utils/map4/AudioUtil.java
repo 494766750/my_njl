@@ -1,4 +1,4 @@
-package my.utils.map4;
+package com.my.utils.map4;
 
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.mp3.MP3AudioHeader;

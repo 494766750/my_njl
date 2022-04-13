@@ -1,11 +1,11 @@
-package my.utils.word;
+package com.my.utils.word;
 
 /**
  * 2022/3/4
  * NJL
  */
 
-import my.utils.DateUtils;
+import com.my.utils.DateUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;

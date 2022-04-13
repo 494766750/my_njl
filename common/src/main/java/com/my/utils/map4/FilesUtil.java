@@ -1,7 +1,5 @@
-package my.utils.map4;
+package com.my.utils.map4;
 
-
-import my.entity.Files;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package my.utils.word;
+package com.my.utils.word;
 
 /**
  * 2022/3/4

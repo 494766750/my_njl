@@ -1,4 +1,4 @@
-package my.utils.map4;
+package com.my.utils.map4;
 
 import com.coremedia.iso.IsoFile;
 
