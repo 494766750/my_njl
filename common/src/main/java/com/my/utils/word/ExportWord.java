@@ -125,8 +125,7 @@ public class ExportWord {
     }
     
     
-    @SuppressWarnings("unchecked")
-    public void exportCheckWord2(Map<String, Object> dataList, XWPFDocument document, String savePath) throws IOException {
+    public byte[] exportCheckWord2(Map<String, Object> dataList, XWPFDocument document) throws IOException {
         XWPFParagraph paragraph = document.getParagraphArray(0);
         XWPFRun titleFun = paragraph.getRuns().get(0);
         titleFun.setText(String.valueOf(dataList.get("TITLE")));
@@ -138,6 +137,6 @@ public class ExportWord {
 //        List<List<Object>> tableData = (List<List<Object>>) dataList.get("TABLEDATA");
 //        XWPFTable table = document.getTableArray(0);
 //        fillTableData(table, tableData);
-        xwpfHelper.saveDocument(document, savePath);
+        return xwpfHelper.saveDocumentToByteOutputStream(document);
     }
 }

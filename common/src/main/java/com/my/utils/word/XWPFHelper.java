@@ -315,4 +315,12 @@ public class XWPFHelper {
         targetRun.addPicture(picInIsData, picType, fileName, width, height);
 //        targetRun.addBreak();//分行
     }
+    
+    public byte[] saveDocumentToByteOutputStream(XWPFDocument document) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        document.write(byteArrayOutputStream);
+        byte[] wordByte = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.close();
+        return wordByte;
+    }
 }

@@ -9,7 +9,6 @@ import com.my.utils.DateUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,11 +61,11 @@ public class TestExportWord {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        try {
-            ew.exportCheckWord2(dataList, document, savePath+name);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            ew.exportCheckWord2(dataList, document, savePath+name);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         String uploadDir = (savePath+name).substring("D:/data/uploadPath".length());
         return uploadDir;
     }

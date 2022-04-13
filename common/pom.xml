@@ -12,6 +12,7 @@
     <artifactId>common</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
@@ -117,6 +118,8 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
+
+
 
     </dependencies>
 
