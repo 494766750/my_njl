@@ -1,4 +1,4 @@
-package Threadpool;
+package com.my.Threadpool;
 
 /**
  * 2022/4/22
@@ -22,5 +22,4 @@ public class MyRunnable implements Runnable {
         myThreadPool.shutDown();		//销毁所有工作线程
         System.out.println("线程池已经被销毁了");
     }
-    
 }

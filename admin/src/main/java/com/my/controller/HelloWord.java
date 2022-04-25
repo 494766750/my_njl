@@ -1,8 +1,10 @@
 package com.my.controller;
 
+import com.my.Threadpool.MyThreadPool;
 import com.my.service.SysUserService;
 import com.my.utils.DateUtils;
 import com.my.utils.word.ExportWord;
+import com.my.utils.word.TestExportWord;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,9 @@ public class HelloWord {
 
     @Autowired
     private SysUserService sysUserService;
+    
+    @Autowired
+    private MyThreadPool myThreadPool;
 
     /**
      *
@@ -76,5 +81,19 @@ public class HelloWord {
         }
         String uploadDir = (savePath+name).substring("D:/data/uploadPath".length());
         return uploadDir;
+    }
+
+    @GetMapping("/threadPool")
+    public int threadPool(){
+        TestExportWord testExportWord = new TestExportWord();
+        for(int i = 0;i<1000;i++){
+            try {
+                myThreadPool.execute(testExportWord);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return 1;
     }
 }

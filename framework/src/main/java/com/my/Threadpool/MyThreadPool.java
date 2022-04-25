@@ -1,4 +1,6 @@
-package Threadpool;
+package com.my.Threadpool;
+
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 //线程池 - 维护很多个线程， 当来一个任务时， 从线程池中获取一个线程去处理执行。
 //好处： 防止线程频繁开辟和销毁带来的性能损耗
+@Component
 public class MyThreadPool {
     //创建任务线程安全的队列, 保证多个线程对这个队列操作时是线程安全的
     private BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
@@ -22,7 +25,6 @@ public class MyThreadPool {
     public void execute(Runnable command) throws InterruptedException {
         if(Wokers.size() < maxWorkerCount) {
             //创建一个新的工作线程
-            System.out.println("---->" +Wokers.size());
             Worker worker = new Worker(queue, Wokers.size());   //创建工作线程
             worker.start();                      //创建的工程线程启动
             Wokers.add(worker);                  //添加到管理列表中

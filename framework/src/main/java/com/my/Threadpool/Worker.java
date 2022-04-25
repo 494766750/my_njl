@@ -1,4 +1,4 @@
-package Threadpool;
+package com.my.Threadpool;
 
 import java.util.concurrent.BlockingQueue;
 
@@ -13,7 +13,7 @@ public class Worker extends Thread {
     //每个工作线程都会有一个阻塞队列，这个队列中保存了所有的任务
     public Worker(BlockingQueue<Runnable> queue, int id) {
         this.queue = queue;
-        //   Thread.currentThread().setName("郝梦武" + id + "号工作线程");
+           Thread.currentThread().setName("当前线程池活跃线程数" + id);
     }
     
     //工作线程执行内容

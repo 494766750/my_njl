@@ -9,18 +9,17 @@ import com.my.utils.DateUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
 
-public class TestExportWord {
+public class TestExportWord extends Thread {
     
     public static void main(String[] args) throws Exception {
-        new TestExportWord().createWord();
+//        new TestExportWord().createWord();
     }
     
-    public String createWord(){
+    @Override
+    public void run(){
         ExportWord ew = new ExportWord();
         XWPFDocument document = ew.createXWPFDocument();
         List<List<Object>> list = new ArrayList<List<Object>>();
@@ -56,18 +55,23 @@ public class TestExportWord {
     
         String date = DateUtils.datePath();
         String savePath = "D:/data/uploadPath/autoWord/"+date;
-        String name = "/autoWord.docx";
+        ;
+        String name = "/"+UUID.randomUUID()+".docx";
         File dir = new File(savePath);
         if (!dir.exists()) {
             dir.mkdirs();
         }
-//        try {
-//            ew.exportCheckWord2(dataList, document, savePath+name);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        String uploadDir = (savePath+name).substring("D:/data/uploadPath".length());
-        return uploadDir;
+        try {
+            ew.exportCheckWord(dataList, document, savePath+name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("---->" +  (savePath+name).substring("D:/data/uploadPath".length()));
+        try {
+            Thread.currentThread().join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     
     
