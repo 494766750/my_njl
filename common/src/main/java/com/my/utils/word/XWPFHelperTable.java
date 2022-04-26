@@ -20,7 +20,6 @@ public class XWPFHelperTable {
      * 删除指定位置的表格，被删除表格后的索引位置
      * @param document
      * @param pos
-     * @Author Huangxiaocong 2018年12月1日 下午10:32:43
      */
     public void deleteTableByIndex(XWPFDocument document, int pos) {
         Iterator<IBodyElement> bodyElement = document.getBodyElementsIterator();
@@ -43,7 +42,6 @@ public class XWPFHelperTable {
      * @param document
      * @param index
      * @return
-     * @Author Huangxiaocong 2018年12月1日 下午10:34:14
      */
     public XWPFTable getTableByIndex(XWPFDocument document, int index) {
         List<XWPFTable> tableList = document.getTables();
@@ -56,7 +54,6 @@ public class XWPFHelperTable {
      * 得到表格的内容（第一次跨行单元格视为一个，第二次跳过跨行合并的单元格）
      * @param table
      * @return
-     * @Author Huangxiaocong 2018年12月1日 下午10:46:41
      */
     public List<List<String>> getTableRConten(XWPFTable table) {
         List<List<String>> tableContextList = new ArrayList<List<String>>();
@@ -92,7 +89,6 @@ public class XWPFHelperTable {
      * 获得一个表格的单元格的内容
      * @param cell
      * @return
-     * @Author Huangxiaocong 2018年12月2日 下午7:39:23
      */
     public String getTableCellContent(XWPFTableCell cell) {
         StringBuffer sb = new StringBuffer();
@@ -113,7 +109,6 @@ public class XWPFHelperTable {
      * 得到表格内容，合并后的单元格视为一个单元格
      * @param table
      * @return
-     * @Author Huangxiaocong 2018年12月2日 下午7:47:19
      */
     public List<List<String>> getTableContent(XWPFTable table) {
         List<List<String>> tableContentList = new ArrayList<List<String>>();
@@ -136,7 +131,6 @@ public class XWPFHelperTable {
      * @param fromCell    起始列
      * @param toCell    终止列
      * @Description
-     * @Author Huangxiaocong 2018年11月26日 下午9:23:22
      */
     public void mergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell) {
         for(int cellIndex = fromCell; cellIndex <= toCell; cellIndex++ ) {
@@ -155,7 +149,6 @@ public class XWPFHelperTable {
      * @param fromRow    起始行
      * @param toRow    终止行
      * @Description
-     * @Author Huangxiaocong 2018年11月26日 下午9:09:19
      */
     public void mergeCellsVertically(XWPFTable table, int col, int fromRow, int toRow) {
         for(int rowIndex = fromRow; rowIndex <= toRow; rowIndex++) {
@@ -219,7 +212,6 @@ public class XWPFHelperTable {
      * @param infoTable
      * @param heigth 高度
      * @param vertical 表格内容的显示方式：居中、靠右...
-     * @Author Huangxiaocong 2018年12月16日
      */
     public void setTableHeight(XWPFTable infoTable, int heigth, STVerticalJc.Enum vertical) {
         List<XWPFTableRow> rows = infoTable.getRows();

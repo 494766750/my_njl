@@ -22,7 +22,6 @@ public class ExportWord {
     /**
      * 创建好文档的基本 标题，表格  段落等部分
      * @return
-     * @Author Huangxiaocong 2018年12月16日
      */
     public XWPFDocument createXWPFDocument() {
         XWPFDocument doc = new XWPFDocument();
@@ -33,7 +32,6 @@ public class ExportWord {
     /**
      * 创建表格的标题样式
      * @param document
-     * @Author Huangxiaocong 2018年12月16日 下午5:28:38
      */
     public void createTitleParagraph(XWPFDocument document) {
         XWPFParagraph titleParagraph = document.createParagraph();    //新建一个标题段落对象（就是一段文字）
@@ -58,7 +56,6 @@ public class ExportWord {
      * @param document
      * @param rows
      * @param cols
-     * @Author Huangxiaocong 2018年12月16日
      */
     public void createTableParagraph(XWPFDocument document, int rows, int cols) {
 //        xwpfHelperTable.createTable(xdoc, rowSize, cellSize, isSetColWidth, colWidths)
@@ -93,7 +90,6 @@ public class ExportWord {
      * @param dataList
      * @param document
      * @throws IOException
-     * @Author Huangxiaocong 2018年12月16日
      */
     @SuppressWarnings("unchecked")
     public void exportCheckWord(Map<String, Object> dataList, XWPFDocument document, String savePath) throws IOException {
@@ -109,7 +105,6 @@ public class ExportWord {
      * 往表格中填充数据
      * @param table
      * @param tableData
-     * @Author Huangxiaocong 2018年12月16日
      */
     public void fillTableData(XWPFTable table, List<List<Object>> tableData) {
         List<XWPFTableRow> rowList = table.getRows();

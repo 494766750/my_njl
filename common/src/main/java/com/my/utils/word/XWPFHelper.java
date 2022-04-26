@@ -38,7 +38,6 @@ public class XWPFHelper {
     /**
      * 创建一个word对象
      * @return
-     * @Author Huangxiaocong 2018年12月1日 上午11:56:35
      */
     public XWPFDocument createDocument() {
         XWPFDocument document = new XWPFDocument();
@@ -49,7 +48,6 @@ public class XWPFHelper {
      * @param path 文档所在路径
      * @return
      * @throws IOException
-     * @Author Huangxiaocong 2018年12月1日 下午12:30:07
      */
     public XWPFDocument openDoc(String path) throws IOException {
         InputStream is = new FileInputStream(path);
@@ -60,7 +58,6 @@ public class XWPFHelper {
      * @param document 文档对象
      * @param savePath    保存路径
      * @throws IOException
-     * @Author Huangxiaocong 2018年12月1日 下午12:32:37
      */
     public void saveDocument(XWPFDocument document, String savePath) throws IOException {
         OutputStream os = new FileOutputStream(savePath);
@@ -72,7 +69,6 @@ public class XWPFHelper {
      * @param paragraph
      * @param textStyle
      * @param
-     * @Author Huangxiaocong 2018年12月1日 下午3:56:32
      */
     public void addParagraphTextHyperlink(XWPFParagraph paragraph, TextStyle textStyle) {
         String id = paragraph.getDocument().getPackagePart().
@@ -98,7 +94,6 @@ public class XWPFHelper {
      * 设置段落的基本样式  设置段落间距信息， 一行 = 100    一磅=20
      * @param paragraph
      * @param paragStyle
-     * @Author Huangxiaocong 2018年12月1日 下午4:27:17
      */
     public void setParagraphSpacingInfo(XWPFParagraph paragraph, ParagraphStyle paragStyle, STLineSpacingRule.Enum lineValue) {
         CTPPr pPPr = getParagraphCTPPr(paragraph);
@@ -129,7 +124,6 @@ public class XWPFHelper {
      * 设置段落缩进信息  1厘米 约等于 567
      * @param paragraph
      * @param paragStyle
-     * @Author Huangxiaocong 2018年12月1日 下午7:59:35
      */
     public void setParagraphIndInfo(XWPFParagraph paragraph, ParagraphStyle paragStyle) {
         CTPPr pPPr = getParagraphCTPPr(paragraph);
@@ -145,7 +139,6 @@ public class XWPFHelper {
      * @param paragraph
      * @param pAlign
      * @param valign
-     * @Author Huangxiaocong 2018年12月1日 下午8:54:43
      */
     public void setParagraphAlignInfo(XWPFParagraph paragraph, ParagraphAlignment pAlign, TextAlignment valign) {
         if(pAlign != null) {
@@ -159,7 +152,6 @@ public class XWPFHelper {
      * 得到段落的CTPPr
      * @param paragraph
      * @return
-     * @Author Huangxiaocong 2018年12月1日 下午7:36:10
      */
     public CTPPr getParagraphCTPPr(XWPFParagraph paragraph) {
         CTPPr pPPr = null;
@@ -177,7 +169,6 @@ public class XWPFHelper {
      * @param paragraph
      * @param pRun
      * @return
-     * @Author Huangxiaocong 2018年12月1日 下午7:46:01
      */
     public CTRPr getRunCTRPr(XWPFParagraph paragraph, XWPFRun pRun) {
         CTRPr ctrPr = null;
@@ -197,7 +188,6 @@ public class XWPFHelper {
      * 复制表格
      * @param targetTable
      * @param sourceTable
-     * @Author Huangxiaocong 2018年12月1日 下午1:40:01
      */
     public void copyTable(XWPFTable targetTable, XWPFTable sourceTable) {
         //复制表格属性
@@ -217,7 +207,6 @@ public class XWPFHelper {
      * 复制单元格
      * @param targetRow
      * @param sourceRow
-     * @Author Huangxiaocong 2018年12月1日 下午1:33:22
      */
     public void copyTableRow(XWPFTableRow targetRow, XWPFTableRow sourceRow) {
         //复制样式
@@ -238,7 +227,6 @@ public class XWPFHelper {
      * 复制单元格（列） 从sourceCell到targetCell
      * @param targetCell
      * @param sourceCell
-     * @Author Huangxiaocong 2018年12月1日 下午1:27:38
      */
     public void copyTableCell(XWPFTableCell targetCell, XWPFTableCell sourceCell) {
         //表格属性
@@ -259,7 +247,6 @@ public class XWPFHelper {
      * 复制段落，从sourceParag到targetParag
      * @param targetParag
      * @param sourceParag
-     * @Author Huangxiaocong 2018年12月1日 下午1:16:26
      */
     public void copyParagraph(XWPFParagraph targetParag, XWPFParagraph sourceParag) {
         targetParag.getCTP().setPPr(sourceParag.getCTP().getPPr());    //设置段落样式
@@ -277,7 +264,6 @@ public class XWPFHelper {
      * 复制XWPFRun 从sourceRun到targetRun
      * @param targetRun
      * @param sourceRun
-     * @Author Huangxiaocong 2018年12月1日 下午12:56:53
      */
     public void copyRun(XWPFRun targetRun, XWPFRun sourceRun) {
         //设置targetRun属性
@@ -303,7 +289,6 @@ public class XWPFHelper {
      * @param
      * @throws IOException
      * @throws InvalidFormatException
-     * @Author Huangxiaocong 2018年12月1日 下午12:57:33
      */
     public void copyPicture(XWPFRun targetRun, XWPFPicture sourcePicture) throws InvalidFormatException, IOException {
         XWPFPictureData picData = sourcePicture.getPictureData();
