@@ -23,13 +23,13 @@ public class MyThreadPool {
     
     //execute方法
     public void execute(Runnable command) throws InterruptedException {
+        queue.put(command);                      //添加任务到线程安全的队列中
         if(Wokers.size() < maxWorkerCount) {
             //创建一个新的工作线程
             Worker worker = new Worker(queue, Wokers.size());   //创建工作线程
             worker.start();                      //创建的工程线程启动
             Wokers.add(worker);                  //添加到管理列表中
         }
-        queue.put(command);                      //添加任务到线程安全的队列中
     }
     
     //销毁所有线程 - 将每个线程中状态置为中断状态方法， 并且
