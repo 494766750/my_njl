@@ -150,6 +150,13 @@
             <artifactId>spring-websocket</artifactId>
             <version>5.0.12.RELEASE</version>
         </dependency>
+        <!--    抓取全国行政机构    -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+
 
 
     </dependencies>
