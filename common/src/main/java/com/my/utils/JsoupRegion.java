@@ -34,15 +34,15 @@ public class JsoupRegion {
         public void setName(String name) {
             this.name = name;
         }
-        
-        public String getParenId() {
-            return parenId;
+    
+        public String getParentId() {
+            return parentId;
         }
-        
-        public void setParenId(String parenId) {
-            this.parenId = parenId;
+    
+        public void setParentId(String parentId) {
+            this.parentId = parentId;
         }
-        
+    
         public String getType() {
             return type;
         }
@@ -54,7 +54,7 @@ public class JsoupRegion {
         private String code;
         private String name;
         private String type;// 乡镇类型
-        private String parenId;
+        private String parentId;
         List<Region> regions;
         
         public List<Region> getRegions() {
@@ -152,7 +152,7 @@ public class JsoupRegion {
                 region.setCode(element.attr("href").substring(0, 2));
                 region.setName(element.text().replaceAll("<br />", ""));
                 region.setType("");
-                region.setParenId("0");
+                region.setParentId("0");
                 list.add(region);
             }
         }
@@ -181,7 +181,7 @@ public class JsoupRegion {
                 String code = element.attr("href").substring(3, 7);
                 region.setCode(code);
                 region.setName(element.text());
-                region.setParenId(code.substring(0, 2));
+                region.setParentId(code.substring(0, 2));
                 region.setType("");
                 list.add(region);
             }
@@ -211,7 +211,7 @@ public class JsoupRegion {
                 String code = element.attr("href").substring(3, 9);
                 region.setCode(code);
                 region.setName(element.text());
-                region.setParenId(code.substring(0, 4));
+                region.setParentId(code.substring(0, 4));
                 region.setType("");
                 list.add(region);
             }
@@ -241,7 +241,7 @@ public class JsoupRegion {
                 String code = element.attr("href").substring(3, 12);
                 region.setCode(code);
                 region.setName(element.text());
-                region.setParenId(code.substring(0, 6));
+                region.setParentId(code.substring(0, 6));
                 region.setType("");
                 list.add(region);
             }
@@ -273,7 +273,7 @@ public class JsoupRegion {
                     }
                     if (Integer(value) && value.length() > 3) {
                         region.setCode(value);
-                        region.setParenId(value.substring(0, 9));
+                        region.setParentId(value.substring(0, 9));
                     } else {
                         region.setName(value);
                     }
@@ -286,33 +286,35 @@ public class JsoupRegion {
         return list;
     }
     
-    //    public static void main(String[] args) throws IOException {
-//        List<Region> all = new ArrayList<Region>();
-//        List<Region> province = getProvince("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2013/index.html");
-//        all.addAll(province);
-//        List<String> done = new ArrayList<String>();//用来存已经抓取过的省份
-//        for (Region regionProvince : province) {// 遍历省
-//            if (done.contains(regionProvince.getCode())) {
-//                continue;
-//            }
+        public static void main(String[] args) throws IOException {
+        List<Region> all = new ArrayList<Region>();
+        List<Region> province = getProvince("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/index.html");
+        
+        List<String> done = new ArrayList<String>();//用来存已经抓取过的省份
+        for (Region regionProvince : province) {// 遍历省
+            if (done.contains(regionProvince.getCode())) {
+                continue;
+            }
 //            System.out.println(regionProvince.getCode() + regionProvince.getName());
 //            appendFile("E:/" + regionProvince.getCode() + regionProvince.getName() + ".txt", regionProvince.getCode() + "||" + regionProvince.getName() + "||"
 //                    + regionProvince.getParentId() + "||" + regionProvince.getType() + "\r\n");
-//
-//            List<Region> city = getCity("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2013/" + regionProvince.getCode() + ".html");
-//            for (Region regionCity : city) {// 遍历市
+            
+            List<Region> city = getCity("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode() + ".html");
+            regionProvince.setRegions(city);
+            for (Region regionCity : city) {// 遍历市
 //                System.out.println(regionCity.getCode() + "||" + regionCity.getName());
 //                appendFile("E:/" + regionProvince.getCode() + regionProvince.getName() + ".txt", regionCity.getCode() + "||" + regionCity.getName() + "||"
 //                        + regionCity.getParentId() + "||" + regionCity.getType() + "\r\n");
-//
-//                List<Region> county = getCounty("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2013/" + regionProvince.getCode() + "/"
-//                        + regionCity.getCode() + ".html");
+
+                List<Region> county = getCounty("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode() + "/"
+                        + regionCity.getCode() + ".html");
 //                all.addAll(county);
+                regionCity.setRegions(county);
 //                for (Region regionCounty : county) {// 遍历县
 //                    appendFile("E:/" + regionProvince.getCode() + regionProvince.getName() + ".txt", regionCounty.getCode() + "||" + regionCounty.getName()
 //                            + "||" + regionCounty.getParentId() + "||" + regionCounty.getType() + "\r\n");
 //
-//                    List<Region> town = getTown("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2013/" + regionProvince.getCode() + "/"
+//                    List<Region> town = getTown("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode() + "/"
 //                            + regionCity.getCode().substring(2, 4) + "/" + regionCounty.getCode() + ".html");
 //                    all.addAll(town);
 //                    for (Region regionTown : town) {// 遍历镇
@@ -330,30 +332,34 @@ public class JsoupRegion {
 //
 //                        }
 //                    }
-//
+
 //                }
-//
-//            }
-//        }
-//    }
-    public static void main(String[] args) throws Exception {
-//            String regionProvince = "410103";
-        Region regionProvince = new Region();
-        regionProvince.setCode("410103");
-        List<Region> town = getTown("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode().substring(0, 2)+ "/"
-                + regionProvince.getCode().substring(2, 4) + "/" + regionProvince.getCode() + ".html");
-        for (Region regionTown : town) {// 遍历镇
-            regionTown.setParenId("410103");
-            List<Region> village = getVillage("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode().substring(0, 2) + "/"
-                    + regionProvince.getCode().substring(2, 4) + "/" + regionProvince.getCode().substring(4, 6) + "/" + regionTown.getCode() + ".html");
-            for (Region regionVillage : village) {// 遍历村
-                regionVillage.setParenId(regionTown.getCode());
+
             }
-            regionTown.setRegions(village);
         }
-        List<Object> objects = Collections.singletonList(town);
+            all.addAll(province);
+            List<Object> objects = Collections.singletonList(province);
         String s = new JSONArray(objects).toJSONString();
-        System.out.println("---->" + s.length());
-        System.out.println("---->" + s.substring(1,s.length()-1));
+            System.out.println("---->" + s);
     }
+//    public static void main(String[] args) throws Exception {
+////            String regionProvince = "410103";
+//        Region regionProvince = new Region();
+//        regionProvince.setCode("410103");
+//        List<Region> town = getTown("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode().substring(0, 2)+ "/"
+//                + regionProvince.getCode().substring(2, 4) + "/" + regionProvince.getCode() + ".html");
+//        for (Region regionTown : town) {// 遍历镇
+//            regionTown.setParentId("410103");
+//            List<Region> village = getVillage("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/" + regionProvince.getCode().substring(0, 2) + "/"
+//                    + regionProvince.getCode().substring(2, 4) + "/" + regionProvince.getCode().substring(4, 6) + "/" + regionTown.getCode() + ".html");
+//            for (Region regionVillage : village) {// 遍历村
+//                regionVillage.setParentId(regionTown.getCode());
+//            }
+//            regionTown.setRegions(village);
+//        }
+//        List<Object> objects = Collections.singletonList(town);
+//        String s = new JSONArray(objects).toJSONString();
+//        System.out.println("---->" + s.length());
+//        System.out.println("---->" + s.substring(1,s.length()-1));
+//    }
 }

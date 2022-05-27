@@ -36,10 +36,11 @@ public class PointUtil {
     }
     
     public static void main(String[] args) {
-        double a = 115.034545;
-        double b = 35.525944;
-        double x = 115.034544;
-        double y = 34.525733;
+        // 34.764397 113.790382 "34.776705" "113.708445"
+        double a = 113.790382;
+        double b = 34.764397;
+        double x = 113.708445;
+        double y = 34.776705;
         double r = 200;
         Object[] obj = getManyPoint(a,b,x,y,r);
         System.out.println("---->"+obj);
